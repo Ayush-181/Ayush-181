@@ -94,8 +94,8 @@ function addLogEntry(type, delta) {
   const cfg     = CONFIG[type];
   const now     = new Date();
   const elapsed = state.startTime ? Date.now() - state.startTime : 0;
-  const sign    = delta > 0 ? '+1' : '−1';
-  const action  = delta > 0 ? cfg.label : `Removed — ${cfg.label}`;
+  const deltaDisplay = delta > 0 ? '+1' : '−1';
+  const action       = delta > 0 ? cfg.label : `Removed — ${cfg.label}`;
 
   // Remove placeholder if present
   const placeholder = callLog.querySelector('.log-empty');
@@ -106,7 +106,7 @@ function addLogEntry(type, delta) {
   li.innerHTML = `
     <span class="log-dot ${cfg.color}"></span>
     <span class="log-time">${formatTime(now)}</span>
-    <span class="log-text">${sign} &nbsp;${action}</span>
+    <span class="log-text">${deltaDisplay} &nbsp;${action}</span>
     <span class="log-elapsed">+${formatDuration(elapsed)}</span>
   `;
 
