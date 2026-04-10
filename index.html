@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Tally Counter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1>📞 Call Tally Counter</h1>
+      <div class="session-bar">
+        <div class="session-info">
+          <span class="label">Session Started</span>
+          <span id="sessionStart" class="value">—</span>
+        </div>
+        <div class="session-info">
+          <span class="label">Elapsed Time</span>
+          <span id="elapsedTime" class="value timer">00:00:00</span>
+        </div>
+        <div class="session-controls">
+          <button id="startBtn" class="btn btn-start">Start Session</button>
+          <button id="resetBtn" class="btn btn-reset" disabled>Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Counter Cards -->
+    <main class="counters-grid">
+
+      <div class="card card-blue">
+        <div class="card-icon">📲</div>
+        <div class="card-label">Calls Dialled</div>
+        <div class="card-count" id="count-dialled">0</div>
+        <div class="card-actions">
+          <button class="tally-btn minus" data-type="dialled">−</button>
+          <button class="tally-btn plus"  data-type="dialled">+</button>
+        </div>
+      </div>
+
+      <div class="card card-green">
+        <div class="card-icon">✅</div>
+        <div class="card-label">Calls Picked</div>
+        <div class="card-count" id="count-picked">0</div>
+        <div class="card-actions">
+          <button class="tally-btn minus" data-type="picked">−</button>
+          <button class="tally-btn plus"  data-type="picked">+</button>
+        </div>
+      </div>
+
+      <div class="card card-yellow">
+        <div class="card-icon">📬</div>
+        <div class="card-label">Went to Voicemail</div>
+        <div class="card-count" id="count-voicemail">0</div>
+        <div class="card-actions">
+          <button class="tally-btn minus" data-type="voicemail">−</button>
+          <button class="tally-btn plus"  data-type="voicemail">+</button>
+        </div>
+      </div>
+
+      <div class="card card-red">
+        <div class="card-icon">❌</div>
+        <div class="card-label">Not Answered</div>
+        <div class="card-count" id="count-unanswered">0</div>
+        <div class="card-actions">
+          <button class="tally-btn minus" data-type="unanswered">−</button>
+          <button class="tally-btn plus"  data-type="unanswered">+</button>
+        </div>
+      </div>
+
+      <div class="card card-purple">
+        <div class="card-icon">🔁</div>
+        <div class="card-label">Call Backs Scheduled</div>
+        <div class="card-count" id="count-callback">0</div>
+        <div class="card-actions">
+          <button class="tally-btn minus" data-type="callback">−</button>
+          <button class="tally-btn plus"  data-type="callback">+</button>
+        </div>
+      </div>
+
+      <div class="card card-teal">
+        <div class="card-icon">🚫</div>
+        <div class="card-label">Do Not Call</div>
+        <div class="card-count" id="count-dnc">0</div>
+        <div class="card-actions">
+          <button class="tally-btn minus" data-type="dnc">−</button>
+          <button class="tally-btn plus"  data-type="dnc">+</button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Summary Bar -->
+    <section class="summary-bar">
+      <div class="summary-item">
+        <span class="summary-label">Pick-up Rate</span>
+        <span class="summary-value" id="pickupRate">—</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Voicemail Rate</span>
+        <span class="summary-value" id="voicemailRate">—</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Calls / Min</span>
+        <span class="summary-value" id="callsPerMin">—</span>
+      </div>
+    </section>
+
+    <!-- Call Log -->
+    <section class="log-section">
+      <div class="log-header">
+        <h2>Activity Log</h2>
+        <button id="clearLogBtn" class="btn btn-clear">Clear Log</button>
+      </div>
+      <ul id="callLog" class="call-log">
+        <li class="log-empty">No activity yet. Start a session and begin logging calls.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
